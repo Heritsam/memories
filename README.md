@@ -1,36 +1,52 @@
 # Memories
 
-> Museum Education Using Monitor Intelligence System
+Memories (Monitor Education Using Monitor Intelligence System) merupakan inovasi teknologi berupa <b>monitor pintar</b> yang berperan sebagai pemandu museum untuk memperoleh informasi yang relevan.
 
-## Background
+## Reach us
 
-This project is intended to be a museum education system that uses monitor intelligence to provide a more interactive experience for visitors.
+- [Instagram](https://www.instagram.com/memories.pkmkc/)
 
 
-# React + TypeScript + Vite
+# Project Status
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Built With
 
-Currently, two official plugins are available:
+- [React.js](https://reactjs.org/)
+- [Vite.js](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Node.js](https://nodejs.org/en/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installing on Local Machine
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Node.js](https://nodejs.org/en/)
 
-- Configure the top-level `parserOptions` property like this:
+### Installation
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Heritsam/memories.git
+   ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Go to the project directory
+   ```sh
+   cd memories
+   ```
+
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+## Usage
+
+1. Run the app
+   ```sh
+   npm run dev
+   ```
+
+2. Open the app on your browser
+   ```sh
+   http://localhost:5173/
+   ```
