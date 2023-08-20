@@ -15,6 +15,7 @@ Memories (Monitor Education Using Monitor Intelligence System) merupakan inovasi
 - [Vite.js](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Node.js](https://nodejs.org/en/)
+- [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)
 
 ## Installing on Local Machine
 
