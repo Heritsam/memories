@@ -9,12 +9,11 @@ Memories (Monitor Education Using Monitor Intelligence System) merupakan inovasi
 
 # Project Status
 
-## Built With
+## Tech Stack
 
 - [React.js](https://reactjs.org/)
 - [Vite.js](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Node.js](https://nodejs.org/en/)
 - [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)
 
 ## Installing on Local Machine
