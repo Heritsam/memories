@@ -1,8 +1,14 @@
 import memories from '../assets/memories.png';
-import heritsam from '../assets/teams/heritsam.jpg';
+import instagram from '../assets/icons/instagram.png';
+import ariqheritsa from '../assets/teams/ariqheritsa.png';
+import akbarprakoso from '../assets/teams/akbarprakoso.png';
+import agunghadi from '../assets/teams/agunghadi.png';
+import elsivinalsy from '../assets/teams/elsivinalsy.png';
+import krisnaaprileo from '../assets/teams/krisnaaprileo.png';
 
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog';
 import AvatarTeam from './custom/avatar-team';
+import Button from './ui/button';
 
 type Props = {
   children: React.ReactNode;
@@ -12,7 +18,6 @@ const AboutDialog = ({ children }: Props) => {
   return (
     <Dialog>
       <DialogTrigger className='bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl w-20 cursor-pointer shadow-xl hover:shadow-lg'>
-
         {children}
       </DialogTrigger>
 
@@ -33,7 +38,7 @@ const AboutDialog = ({ children }: Props) => {
           <div className='flex flex-wrap justify-center gap-4 gap-x-4 mb-4'>
             <div className='w-[100%]'>
               <AvatarTeam
-                imageUrl='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&h=256&q=80'
+                imageUrl={agunghadi}
                 alias='AHW'
                 fullName='Agung Hadi Winoto'
                 major='S1 Data Sains'
@@ -43,7 +48,7 @@ const AboutDialog = ({ children }: Props) => {
 
             <div className='w-[48%]'>
               <AvatarTeam
-                imageUrl='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&h=256&q=80'
+                imageUrl={krisnaaprileo}
                 alias='KAI'
                 fullName='Krisna Aprileo'
                 major='S1 Akuntansi'
@@ -52,8 +57,8 @@ const AboutDialog = ({ children }: Props) => {
 
             <div className='w-[48%]'>
               <AvatarTeam
-                imageUrl='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&h=256&q=80'
-                alias='AHW'
+                imageUrl={elsivinalsy}
+                alias='EVC'
                 fullName='Elsi Vinalsy'
                 major='S1 Akuntansi'
               />
@@ -61,8 +66,8 @@ const AboutDialog = ({ children }: Props) => {
 
             <div className='w-[48%]'>
               <AvatarTeam
-                imageUrl={heritsam}
-                alias='KAI'
+                imageUrl={ariqheritsa}
+                alias='AHM'
                 fullName='Ariq Heritsa'
                 major='S1 Data Sains'
               />
@@ -70,15 +75,24 @@ const AboutDialog = ({ children }: Props) => {
 
             <div className='w-[48%]'>
               <AvatarTeam
-                imageUrl='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&h=256&q=80'
-                alias='AHW'
+                imageUrl={akbarprakoso}
+                alias='AKB'
                 fullName='Akbar Prakoso'
                 major='S1 Informatika'
               />
             </div>
           </div>
 
-          <h4 className='text-center text-lg text-gray-300 font-bold uppercase mb-3'>Ikuti Kami</h4>
+          <h4 className='text-center text-lg text-gray-300 font-bold uppercase mb-1'>Ikuti Kami</h4>
+
+          <div className='flex'>
+            <a href='https://instagram.com/memories.pkmkc' target='_blank'>
+              <Button variant='link'>
+                <img src={instagram} className='w-6 mr-2' />
+                @memories.pkmkc
+              </Button>
+            </a>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
