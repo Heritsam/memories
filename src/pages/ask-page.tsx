@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import microphone from '../assets/icons/microphone.svg';
 
 const AskPage = () => {
+  const { t } = useTranslation();
+
   return (
     <section className='h-full'>
       <div className='grid grid-flow-row grid-cols-3 gap-4 h-full'>
@@ -16,7 +19,7 @@ const AskPage = () => {
               <img src={microphone} />
             </button>
 
-            <p className='text-2xl font-bold'>Tekan untuk berbicara</p>
+            <p className='text-2xl font-bold'>{t('tap_to_speak')}</p>
           </div>
         </div>
       </div>

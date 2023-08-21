@@ -1,17 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import memories from '../assets/memories.png';
 
 import Button from './ui/button';
 import AboutDialog from './about-dialog';
 import LanguageToggle from './language-toggle';
-import { useEffect } from 'react';
 
 const Navbar = () => {
   const location = useLocation();
-
-  useEffect(() => {
-    console.log(location.pathname);
-  });
+  const { t } = useTranslation();
 
   return (
     <div className='flex flex-row justify-between mb-4'>
@@ -26,7 +23,7 @@ const Navbar = () => {
                 <path d='M5.5 9.643a.75.75 0 00-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-1.5v-1.546A6.001 6.001 0 0016 10v-.357a.75.75 0 00-1.5 0V10a4.5 4.5 0 01-9 0v-.357z' />
               </svg>
 
-              <span className='ml-2'>Tanya</span>
+              <span className='ml-2'>{t('ask')}</span>
             </Button>
           </Link>
 
@@ -38,7 +35,7 @@ const Navbar = () => {
                 <path fillRule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z' clipRule='evenodd' />
               </svg>
 
-              <span className='ml-2'>Riwayat</span>
+              <span className='ml-2'>{t('history')}</span>
             </Button>
           </Link>
         </div>
@@ -53,7 +50,7 @@ const Navbar = () => {
               <path fillRule='evenodd' d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z' clipRule='evenodd' />
             </svg>
 
-            <span className='text-gray-200 text-sm'>Tentang</span>
+            <span className='text-gray-200 text-sm'>{t('about')}</span>
           </div>
         </AboutDialog>
       </div>

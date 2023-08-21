@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import id from '../assets/flags/id.svg';
 import en from '../assets/flags/en.svg';
@@ -12,10 +13,20 @@ import {
 } from './ui/dropdown-menu';
 
 const LanguageToggle = () => {
-  const [language, setLanguage] = useState('en');
-  
-  const handleLanguageChange = (language: string) => {
-    setLanguage(language);
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState('id');
+
+  useEffect(() => {
+    const locale = localStorage.getItem('locale');
+    if (locale) {
+      setLanguage(locale);
+    }
+  }, []);
+
+  const handleLanguageChange = (locale: string) => {
+    i18n.changeLanguage(locale);
+    localStorage.setItem('locale', locale);
+    setLanguage(locale);
   };
 
   return (
