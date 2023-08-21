@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 
 type Props = {
   imageUrl?: string;

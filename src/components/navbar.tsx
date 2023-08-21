@@ -11,7 +11,7 @@ const Navbar = () => {
   const { t } = useTranslation();
 
   return (
-    <div className='flex flex-row justify-between mb-4'>
+    <nav className='flex flex-row justify-between mb-4'>
       <div className='w-40'></div>
 
       <div className='bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl shadow-xl'>
@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
         </AboutDialog>
       </div>
-    </div>
+    </nav>
   );
 };
 

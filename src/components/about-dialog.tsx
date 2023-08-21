@@ -9,7 +9,7 @@ import elsivinalsy from '../assets/teams/elsivinalsy.png';
 import krisnaaprileo from '../assets/teams/krisnaaprileo.png';
 
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog';
-import AvatarTeam from './custom/avatar-team';
+import AvatarTeam from './ui/avatar-team';
 import Button from './ui/button';
 
 type Props = {

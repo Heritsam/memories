@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-sky-500 text-white hover:bg-sky-500/90 font-bold',
         defaultGradient: 'bg-gradient-to-br from-sky-500 to-sky-600 text-white hover:bg-sky-500/90 font-bold',
+        defaultGradient2: 'bg-gradient-to-br from-sky-500 to-indigo-500 text-white hover:bg-gradient-tr font-bold',
         destructive:
           'bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90',
         outline:
