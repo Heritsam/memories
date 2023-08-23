@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import '@/config/i18n';
-
 import './index.css';
 
-import Root from './pages/root';
-import ErrorPage from './pages/error-page';
-import AskPage from './pages/ask-page';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import { ThemeProvider } from './components/theme-provider';
+import AskPage from './pages/ask-page';
+import ErrorPage from './pages/error-page';
+import Root from './pages/root';
+import { store } from './states/store';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>,
 );
