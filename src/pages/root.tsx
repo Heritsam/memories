@@ -1,7 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import landing from '../assets/landing.png';
 
 import Navbar from '@/components/navbar';
+
+import landing from '../assets/landing.png';
 
 const Root = () => {
   return (

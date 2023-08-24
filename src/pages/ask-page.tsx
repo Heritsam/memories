@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import microphone from '../assets/icons/microphone.svg';
 
 import ChatInterface from '@/components/chat/chat-interface';
+
+import microphone from '../assets/icons/microphone.svg';
 
 const AskPage = () => {
   const { t } = useTranslation();

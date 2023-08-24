@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import * as actions from '@/redux/bank/bank-actions';
+import { RootState } from '@/redux/store';
 import { bindActionCreators } from '@reduxjs/toolkit';
-
-import * as actions from '../states/bank/bank-actions';
-import { RootState } from '@/states/store';
 
 const BankPage = () => {
   const dispatch = useDispatch();

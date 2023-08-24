@@ -1,4 +1,4 @@
-import '@/config/i18n';
+import '@/lib/i18n';
 import './index.css';
 
 import React from 'react';
@@ -6,11 +6,11 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { ThemeProvider } from './components/theme-provider';
-import AskPage from './pages/ask-page';
-import ErrorPage from './pages/error-page';
-import Root from './pages/root';
-import { store } from './states/store';
+import { ThemeProvider } from '@/components/theme-provider';
+import AskPage from '@/pages/ask-page';
+import ErrorPage from '@/pages/error-page';
+import Root from '@/pages/root';
+import { store } from '@/redux/store';
 
 const router = createBrowserRouter([
   {
