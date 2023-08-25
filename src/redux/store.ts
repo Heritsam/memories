@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import bankReducer from './bank/bank-reducer';
+import chatReducer from './chat/chat-reducer';
 
 export const store = configureStore({
   reducer: {
     bank: bankReducer,
+    chat: chatReducer,
   },
 });
 
