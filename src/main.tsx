@@ -12,6 +12,8 @@ import ErrorPage from '@/pages/error-page';
 import Root from '@/pages/root';
 import { store } from '@/redux/store';
 
+import HistoryPage from './pages/history-page';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/history',
-        element: <div>History</div>,
+        element: <HistoryPage />,
       },
     ],
   },
