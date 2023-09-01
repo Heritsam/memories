@@ -32,17 +32,17 @@ const LanguageToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className='bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl shadow-xl w-20 cursor-pointer'>
-          <div className='flex flex-col items-center justify-center h-full gap-2'>
+        <div className='w-20 cursor-pointer rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl'>
+          <div className='flex h-full flex-col items-center justify-center gap-2'>
             {language === 'en' ? (
               <>
                 <img src={en} className='w-6 rounded' />
-                <span className='text-gray-200 text-sm'>Language</span>
+                <span className='text-sm text-gray-200'>Language</span>
               </>
             ) : (
               <>
                 <img src={id} className='w-6 rounded' />
-                <span className='text-gray-200 text-sm'>Bahasa</span>
+                <span className='text-sm text-gray-200'>Bahasa</span>
               </>
             )}
           </div>
@@ -52,12 +52,12 @@ const LanguageToggle = () => {
         <DropdownMenuLabel>Pilih Bahasa</DropdownMenuLabel>
 
         <DropdownMenuItem onClick={() => handleLanguageChange('id')}>
-          <img src={id} className='w-6 rounded mr-2' />
+          <img src={id} className='mr-2 w-6 rounded' />
           <span>Bahasa Indonesia</span>
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
-          <img src={en} className='w-6 rounded mr-2' />
+          <img src={en} className='mr-2 w-6 rounded' />
           <span>English</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

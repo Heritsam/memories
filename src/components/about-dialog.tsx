@@ -21,27 +21,27 @@ const AboutDialog = ({ children }: Props) => {
 
   return (
     <Dialog>
-      <DialogTrigger className='bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl w-20 cursor-pointer shadow-xl hover:shadow-lg'>
+      <DialogTrigger className='w-20 cursor-pointer rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl hover:shadow-lg'>
         {children}
       </DialogTrigger>
 
       <DialogContent className='bg-slate-700'>
-        <div className='flex flex-col justify-center items-center mt-4 mb-10'>
-          <img src={memories} alt='memories' className='h-20 mx-auto' />
+        <div className='mb-10 mt-4 flex flex-col items-center justify-center'>
+          <img src={memories} alt='memories' className='mx-auto h-20' />
 
-          <h4 className='text-center text-lg text-gray-300 font-bold uppercase'>
+          <h4 className='text-center text-lg font-bold uppercase text-gray-300'>
             {t('about')}
           </h4>
 
-          <p className='text-center text-xs text-gray-400 font-medium w-5/6 mb-4'>
+          <p className='mb-4 w-5/6 text-center text-xs font-medium text-gray-400'>
             Memories (Monitor Education Using Monitor Intelligence System) merupakan inovasi teknologi berupa <b className='font-bold text-gray-100'>monitor pintar</b> yang berperan sebagai pemandu museum untuk memperoleh informasi yang relevan.
           </p>
 
-          <h4 className='text-center text-lg text-gray-300 font-bold uppercase mb-3'>
+          <h4 className='mb-3 text-center text-lg font-bold uppercase text-gray-300'>
             {t('team_members')}
           </h4>
 
-          <div className='flex flex-wrap justify-center gap-4 gap-x-4 mb-4'>
+          <div className='mb-4 flex flex-wrap justify-center gap-4'>
             <div className='w-[100%]'>
               <AvatarTeam
                 imageUrl={agunghadi}
@@ -89,14 +89,14 @@ const AboutDialog = ({ children }: Props) => {
             </div>
           </div>
 
-          <h4 className='text-center text-lg text-gray-300 font-bold uppercase mb-1'>
+          <h4 className='mb-1 text-center text-lg font-bold uppercase text-gray-300'>
             {t('follow_us')}
           </h4>
 
           <div className='flex'>
             <a href='https://instagram.com/memories.pkmkc' target='_blank'>
               <Button variant='link'>
-                <img src={instagram} className='w-6 mr-2' />
+                <img src={instagram} className='mr-2 w-6' />
                 @memories.pkmkc
               </Button>
             </a>

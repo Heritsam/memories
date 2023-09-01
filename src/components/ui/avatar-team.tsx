@@ -13,8 +13,8 @@ const AvatarTeam = (props: Props) => {
   const { t } = useTranslation();
 
   return (
-    <div className='bg-black/10 border border-slate-900/20 py-2 px-4 rounded-lg h-[56px]'>
-      <div className='flex flex-row justify-between items-center'>
+    <div className='h-[56px] rounded-lg border border-slate-900/20 bg-black/10 px-4 py-2'>
+      <div className='flex flex-row items-center justify-between'>
         <div className='flex flex-row items-center gap-2'>
           <Avatar>
             <AvatarImage src={props.imageUrl} />
@@ -22,13 +22,13 @@ const AvatarTeam = (props: Props) => {
           </Avatar>
 
           <div className='font-medium text-white'>
-            <h2 className='text-sm font-medium text-ellipsis'>{props.fullName}</h2>
+            <h2 className='text-ellipsis text-sm font-medium'>{props.fullName}</h2>
             <h3 className='text-sm text-gray-500 dark:text-gray-400'>{props.major}</h3>
           </div>
         </div>
 
         {props.ketua && (
-          <div className='bg-gradient-to-tr from-sky-500 to-indigo-600  text-white text-xs font-medium px-3 py-1 rounded-full'>
+          <div className='rounded-full bg-gradient-to-tr from-sky-500  to-indigo-600 px-3 py-1 text-xs font-medium text-white'>
             {t('leader')}
           </div>
         )}

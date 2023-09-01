@@ -10,7 +10,7 @@ const Root = () => {
       style={{ backgroundImage: `url(${landing})`, backgroundSize: 'cover' }}
       className='h-screen text-white'
     >
-      <div className='container mx-auto flex flex-col py-4 h-full'>
+      <div className='container mx-auto flex h-full flex-col py-4'>
         <Navbar />
         <Outlet />
       </div>

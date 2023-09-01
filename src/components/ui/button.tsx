@@ -9,17 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-sky-500 text-white hover:bg-sky-500/90 font-bold',
-        defaultGradient: 'bg-gradient-to-br from-sky-500 to-sky-600 text-white hover:bg-sky-500/90 font-bold',
-        defaultGradient2: 'bg-gradient-to-br from-sky-500 to-indigo-500 text-white hover:bg-gradient-tr font-bold',
+        default: 'bg-sky-500 font-bold text-white hover:bg-sky-500/90',
+        defaultGradient: 'bg-gradient-to-br from-sky-500 to-sky-600 font-bold text-white hover:bg-sky-500/90',
+        defaultGradient2: 'hover:bg-gradient-tr bg-gradient-to-br from-sky-500 to-indigo-500 font-bold text-white',
         destructive:
           'bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90',
         outline:
           'border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50',
         secondary:
-          'bg-slate-800 text-white hover:bg-slate-800/80 font-bold',
+          'bg-slate-800 font-bold text-white hover:bg-slate-800/80',
         ghost: 'hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50',
-        link: 'underline-offset-4 hover:underline text-slate-50',
+        link: 'text-slate-50 underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-10 px-5 py-1',
