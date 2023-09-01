@@ -7,5 +7,6 @@
     "follow_us": "Follow Us",
     "leader": "Leader",
     "tap_to_speak": "Tap to speak",
-    "chat_placeholder": "Ask your question here..."
+    "chat_placeholder": "Ask your question here...",
+    "tap_to_speak_description": "Please provide a concise and clear question within a maximum of 60 words"
 }

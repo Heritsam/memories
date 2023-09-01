@@ -39,9 +39,9 @@ const AskPage = () => {
   return (
     <section className='h-full'>
       <div className='grid grid-flow-row grid-cols-3 gap-4 h-full'>
-        
+
         {/* Chat interface */}
-        <div className='col-span-2 bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl rounded-lg h-[83vh]'>
+        <div className='col-span-2 bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl rounded-lg h-[82vh]'>
           <div className='flex flex-col justify-between h-full w-full'>
             <div className='flex flex-col-reverse gap-6 w-full overflow-y-scroll py-4 px-6'>
               {state.messages.map((message, index) => (
@@ -67,13 +67,17 @@ const AskPage = () => {
         </div>
 
         {/* Tap to speak */}
-        <div className='col-span-1 bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl rounded-lg py-4 px-6'>
+        <div className='col-span-1 bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl rounded-lg py-4 px-6 h-[82vh]'>
           <div className='flex flex-col items-center justify-center gap-6 h-full'>
             <button className='bg-gradient-to-br from-sky-500 to-indigo-500 p-8 rounded-full shadow-lg hover:shadow-md'>
               <img src={microphone} />
             </button>
 
             <p className='text-2xl font-bold'>{t('tap_to_speak')}</p>
+
+            <p className='text-sm font-medium text-center text-slate-300/80'>
+              {t('tap_to_speak_description')}
+            </p>
           </div>
         </div>
       </div>

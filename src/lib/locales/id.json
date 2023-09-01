@@ -7,5 +7,6 @@
     "follow_us": "Ikuti Kami",
     "leader": "Ketua",
     "tap_to_speak": "Tekan untuk berbicara",
-    "chat_placeholder": "Tanyakan sesuatu di sini..."
+    "chat_placeholder": "Tanyakan sesuatu di sini...",
+    "tap_to_speak_description": "Mohon berikan pertanyaan yang singkat dan jelas, dengan batasan maksimal 60 kata"
 }
