@@ -11,7 +11,7 @@ const ChatBubble = ({ message: chat }: Props) => {
     return (
       <div className='flex w-full flex-row justify-end'>
         <div className='ml-24 text-right'>
-          <div className='rounded-t-2xl rounded-bl-2xl rounded-br-sm bg-gradient-to-br from-sky-500 to-sky-600 px-6 py-4'>
+          <div className='rounded-t-2xl rounded-bl-2xl rounded-br-sm bg-gradient-to-br from-sky-500 to-sky-600 px-6 py-4 shadow-md'>
             {chat.message}
           </div>
           <span className='mr-2 text-xs font-light text-slate-300'>
@@ -25,7 +25,7 @@ const ChatBubble = ({ message: chat }: Props) => {
   return (
     <div className='flex w-full flex-row justify-start'>
       <div className='mr-24 text-left'>
-        <div className='rounded-t-2xl rounded-bl-sm rounded-br-2xl bg-slate-600 px-6 py-4'>
+        <div className='rounded-t-2xl rounded-bl-sm rounded-br-2xl bg-slate-600 px-6 py-4 shadow-md'>
           {chat.message}
         </div>
         <span className='ml-2 text-xs font-light text-slate-300'>
