@@ -8,5 +8,9 @@
     "leader": "Leader",
     "tap_to_speak": "Tap to speak",
     "chat_placeholder": "Ask your question here...",
-    "tap_to_speak_description": "Please provide a concise and clear question within a maximum of 60 words"
+    "tap_to_speak_description": "Please provide a concise and clear question within a maximum of 60 words",
+    "ask_microphone_permission": "Please allow microphone access",
+    "configure_microphone": "Configure permission",
+    "listening": "Listening...",
+    "transcribing": "Transcribing..."
 }

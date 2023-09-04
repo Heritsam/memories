@@ -3,13 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ChatBubble from '@/components/chat/chat-bubble';
+import VoiceRecorder from '@/components/chat/voice-recorder';
 import Button from '@/components/ui/button';
 import { type Chat } from '@/infrastructure/models/chat';
-import * as actions from '@/redux/chat/chat-actions';
-import { RootState } from '@/redux/store';
+import * as actions from '@/stores/chat/chat-actions';
+import { RootState } from '@/stores/store';
 import { bindActionCreators } from '@reduxjs/toolkit';
-
-import microphone from '../assets/icons/microphone.svg';
 
 const AskPage = () => {
   const { t } = useTranslation();
@@ -23,9 +22,11 @@ const AskPage = () => {
   const handleSendMessage = () => {
     event?.preventDefault();
 
-    if (message.length > 0) {
+    const newMessage = message.trim();
+
+    if (newMessage.length > 0) {
       const newChat: Chat = {
-        message,
+        message: newMessage,
         user: true,
         timestamp: Date.now(),
       };
@@ -57,7 +58,7 @@ const AskPage = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 className='grow rounded-full bg-slate-900/60 px-6 outline-none'
               />
-              <Button onClick={handleSendMessage} variant='defaultGradient2' className='h-14 w-14 rounded-full p-2'>
+              <Button type='submit' variant='defaultGradient2' className='h-14 w-14 rounded-full p-2'>
                 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' className='ml-[2px] h-6 w-6'>
                   <path d='M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z' />
                 </svg>
@@ -68,17 +69,7 @@ const AskPage = () => {
 
         {/* Tap to speak */}
         <div className='col-span-1 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 px-6 py-4 shadow-xl'>
-          <div className='flex h-full flex-col items-center justify-center gap-6'>
-            <button className='rounded-full bg-gradient-to-br from-sky-500 to-indigo-500 p-8 shadow-lg hover:shadow-md'>
-              <img src={microphone} />
-            </button>
-
-            <p className='text-2xl font-bold'>{t('tap_to_speak')}</p>
-
-            <p className='text-center text-sm font-medium text-slate-300/80'>
-              {t('tap_to_speak_description')}
-            </p>
-          </div>
+          <VoiceRecorder />
         </div>
       </div>
     </section>

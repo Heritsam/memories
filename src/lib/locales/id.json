@@ -8,5 +8,9 @@
     "leader": "Ketua",
     "tap_to_speak": "Tekan untuk berbicara",
     "chat_placeholder": "Tanyakan sesuatu di sini...",
-    "tap_to_speak_description": "Mohon berikan pertanyaan yang singkat dan jelas, dengan batasan maksimal 60 kata"
+    "tap_to_speak_description": "Mohon berikan pertanyaan yang singkat dan jelas, dengan batasan maksimal 60 kata",
+    "ask_microphone_permission": "Mohon izinkan akses mikrofon Anda",
+    "configure_microphone": "Konfigurasi izin",
+    "listening": "Mendengarkan...",
+    "transcribing": "Mentranskripsi..."
 }

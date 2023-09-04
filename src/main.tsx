@@ -10,7 +10,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import AskPage from '@/pages/ask-page';
 import ErrorPage from '@/pages/error-page';
 import Root from '@/pages/root';
-import { store } from '@/redux/store';
+import { store } from '@/stores/store';
 
 import HistoryPage from './pages/history-page';
 
