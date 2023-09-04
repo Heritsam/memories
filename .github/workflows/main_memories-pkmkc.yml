@@ -9,12 +9,12 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  VITE_OPENAI_API_KEY: ${{ env.VITE_OPENAI_API_KEY }}
-
 jobs:
   build:
     runs-on: windows-latest
+
+    env:
+      VITE_OPENAI_API_KEY: ${{ env.VITE_OPENAI_API_KEY }}
 
     steps:
       - uses: actions/checkout@v2
