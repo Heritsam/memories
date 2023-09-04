@@ -22,7 +22,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "i18next": "^23.4.4",
-    "langchain": "^0.0.134",
     "localforage": "^1.10.0",
     "lucide-react": "^0.268.0",
     "match-sorter": "^6.3.1",
