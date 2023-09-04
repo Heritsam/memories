@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { type Chat } from '@/infrastructure/models/chat';
+import { WhisperResponse } from '@/infrastructure/models/whisper-response';
 import * as actions from '@/stores/chat/chat-actions';
 import { bindActionCreators } from '@reduxjs/toolkit';
 
@@ -92,7 +93,7 @@ const useVoiceRecorder = () => {
       formData.append('file', new File([audio], 'audio.webm', { type: mimeType }));
       formData.append('model', 'whisper-1');
 
-      const result = await axios.post(
+      const result = await axios.post<WhisperResponse>(
         'https://api.openai.com/v1/audio/transcriptions',
         formData,
         {
@@ -103,10 +104,8 @@ const useVoiceRecorder = () => {
         },
       );
 
-      const message: string = result.data.text.trim();
-
       const newChat: Chat = {
-        message: message,
+        message: result.data.text.trim(),
         user: true,
         timestamp: Date.now(),
       };

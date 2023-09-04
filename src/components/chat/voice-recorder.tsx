@@ -35,7 +35,7 @@ const VoiceRecorder = () => {
             <img src={microphone} />
           </button>
 
-          <p className='text-2xl font-bold'>{t('tap_to_speak')}</p>
+          <p className='text-center text-2xl font-bold'>{t('tap_to_speak')}</p>
 
           <p className='text-center text-sm font-medium text-slate-300/80'>
             {t('tap_to_speak_description')}
