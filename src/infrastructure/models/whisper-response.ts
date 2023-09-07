@@ -1,3 +1,3 @@
-export interface WhisperResponse {
+export type WhisperResponse = {
   text: string;
-}
+};
