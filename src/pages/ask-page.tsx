@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { type Chat } from '@/api/models/chat';
 import ChatBubble from '@/components/chat/chat-bubble';
 import VoiceRecorder from '@/components/chat/voice-recorder';
 import Button from '@/components/ui/button';
-import { type Chat } from '@/infrastructure/models/chat';
 import * as actions from '@/stores/chat/chat-actions';
 import { RootState } from '@/stores/store';
 import { bindActionCreators } from '@reduxjs/toolkit';
+import { sendMessageToOpenAI } from '@/api/services/openai-service';
 
 const AskPage = () => {
   const { t } = useTranslation();
@@ -18,6 +19,27 @@ const AskPage = () => {
   const state = useSelector((state: RootState) => state.chat);
 
   const [message, setMessage] = useState('');
+  const [assistantThinking, setAssistantThinking] = useState(false);
+
+  useEffect(() => {
+    if (state.messages[0].user) {
+      handleCompletion();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.messages]);
+
+  const handleCompletion = async () => {
+    setAssistantThinking(true);
+    const completion = await sendMessageToOpenAI(state.messages[0].message);
+    setAssistantThinking(false);
+    
+    if (!completion) return;
+    addMessage({
+      message: completion?.content ?? '',
+      user: false,
+      timestamp: Date.now(),
+    });
+  };
 
   const handleSendMessage = () => {
     event?.preventDefault();
@@ -45,6 +67,14 @@ const AskPage = () => {
         <div className='col-span-2 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl'>
           <div className='flex h-full w-full flex-col justify-between'>
             <div className='flex w-full flex-col-reverse gap-6 overflow-y-scroll px-6 py-4'>
+              {assistantThinking ? (
+                <ChatBubble message={{
+                  message: t('assistant_thinking'),
+                  user: false,
+                  timestamp: Date.now(),
+                }} />
+              ) : null}
+              
               {state.messages.map((message, index) => (
                 <ChatBubble key={index} message={message} />
               ))}

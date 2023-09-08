@@ -12,5 +12,6 @@
     "ask_microphone_permission": "Mohon izinkan akses mikrofon Anda",
     "configure_microphone": "Konfigurasi izin",
     "listening": "Mendengarkan...",
-    "transcribing": "Mentranskripsi..."
+    "transcribing": "Mentranskripsi...",
+    "assistant_thinking": "Asisten sedang berpikir..."
 }

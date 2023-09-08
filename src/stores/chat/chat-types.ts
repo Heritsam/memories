@@ -1,4 +1,4 @@
-import { Chat } from '@/infrastructure/models/chat';
+import { Chat } from '@/api/models/chat';
 
 export interface ChatState {
   messages: Chat[];

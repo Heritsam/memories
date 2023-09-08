@@ -12,5 +12,6 @@
     "ask_microphone_permission": "Please allow microphone access",
     "configure_microphone": "Configure permission",
     "listening": "Listening...",
-    "transcribing": "Transcribing..."
+    "transcribing": "Transcribing...",
+    "assistant_thinking": "Assistant is thinking..."
 }

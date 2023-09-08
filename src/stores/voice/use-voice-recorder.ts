@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { type Chat } from '@/infrastructure/models/chat';
-import { WhisperResponse } from '@/infrastructure/models/whisper-response';
+import { type Chat } from '@/api/models/chat';
+import { type WhisperResponse } from '@/api/models/whisper-response';
 import * as actions from '@/stores/chat/chat-actions';
 import { bindActionCreators } from '@reduxjs/toolkit';
 

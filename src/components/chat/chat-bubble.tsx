@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { Chat } from '@/infrastructure/models/chat';
+import { Chat } from '@/api/models/chat';
 
 type Props = {
   message: Chat;
