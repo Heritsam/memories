@@ -31,8 +31,13 @@ const VoiceRecorder = () => {
 
       {permission && recordingStatus === 'inactive' ? (
         <>
-          <button onClick={startRecording} className='rounded-full bg-gradient-to-br from-sky-500 to-indigo-500 p-8 shadow-lg transition-all hover:shadow-md'>
-            <img src={microphone} />
+          <button
+            type='button'
+            title='mic-start-button'
+            onClick={startRecording}
+            className='rounded-full bg-gradient-to-br from-sky-500 to-indigo-500 p-8 shadow-lg transition-all hover:shadow-md'
+          >
+            <img src={microphone} alt='microphone' />
           </button>
 
           <p className='text-center text-2xl font-bold'>{t('tap_to_speak')}</p>
@@ -45,7 +50,12 @@ const VoiceRecorder = () => {
 
       {recordingStatus === 'recording' ? (
         <>
-          <button onClick={stopRecording} className='rounded-full bg-gradient-to-br from-yellow-500 to-pink-500 p-8 shadow-lg transition-all hover:shadow-md'>
+          <button
+            type='button'
+            title='mic-stop-button'
+            onClick={stopRecording}
+            className='rounded-full bg-gradient-to-br from-yellow-500 to-pink-500 p-8 shadow-lg transition-all hover:shadow-md'
+          >
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' className='h-12 w-12'>
               <path fillRule='evenodd' d='M4.5 7.5a3 3 0 013-3h9a3 3 0 013 3v9a3 3 0 01-3 3h-9a3 3 0 01-3-3v-9z' clipRule='evenodd' />
             </svg>
