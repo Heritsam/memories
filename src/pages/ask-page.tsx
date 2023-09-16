@@ -12,11 +12,9 @@ import useChat from '@/stores/chat/use-chat';
 const AskPage = () => {
   const { t } = useTranslation();
 
-  const { messages, addMessage, currentReply, assistantWriting } = useChat();
-
   const [input, setInput] = useState('');
-
   const [keyboardOpen, setKeyboardOpen] = useState(false);
+  const { messages, addMessage, currentReply, assistantWriting } = useChat();
 
   const handleSendMessage = () => {
     event?.preventDefault();
@@ -44,7 +42,7 @@ const AskPage = () => {
         <div className="col-span-2 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl">
           <div className="flex h-full w-full flex-col justify-between">
             <div className="flex w-full flex-col-reverse gap-6 overflow-y-scroll px-6 py-4">
-              {assistantWriting ? (
+              {assistantWriting && currentReply.trim() !== '' ? (
                 <ChatBubble
                   message={{
                     message: currentReply,
