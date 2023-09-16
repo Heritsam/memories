@@ -1,58 +1,27 @@
-import { KeyboardIcon } from 'lucide-react';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChevronDown, KeyboardIcon } from 'lucide-react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { type Chat } from '@/api/models/chat';
-import { sendMessageToOpenAI } from '@/api/services/openai-service';
 import ChatBubble from '@/components/chat/chat-bubble';
 import VoiceRecorder from '@/components/chat/voice-recorder';
 import Button from '@/components/ui/button';
 import VirtualKeyboard from '@/components/virtual-keyboard';
-import * as actions from '@/stores/chat/chat-actions';
-import { RootState } from '@/stores/store';
-import { bindActionCreators } from '@reduxjs/toolkit';
+import useChat from '@/stores/chat/use-chat';
 
 const AskPage = () => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
-  const { addMessage } = bindActionCreators(actions, dispatch);
-  const state = useSelector((state: RootState) => state.chat);
+  const { messages, addMessage, currentReply, assistantWriting } = useChat();
 
-  const [message, setMessage] = useState('');
-  const [assistantThinking, setAssistantThinking] = useState(false);
+  const [input, setInput] = useState('');
 
   const [keyboardOpen, setKeyboardOpen] = useState(false);
-
-  useEffect(() => {
-    if (state.messages[0].user) {
-      handleCompletion();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.messages]);
-
-  const handleCompletion = async () => {
-    setAssistantThinking(true);
-    const completion = await sendMessageToOpenAI(state.messages[0].message);
-    setAssistantThinking(false);
-
-    if (!completion) return;
-    addMessage({
-      message: completion?.content ?? '',
-      user: false,
-      timestamp: Date.now(),
-    });
-  };
-
-  const onInputChanged = (event: ChangeEvent<HTMLInputElement>) => {
-    setMessage(event.target.value);
-  };
 
   const handleSendMessage = () => {
     event?.preventDefault();
 
-    const newMessage = message.trim();
+    const newMessage = input.trim();
 
     if (newMessage.length > 0) {
       const newChat: Chat = {
@@ -63,7 +32,7 @@ const AskPage = () => {
 
       addMessage(newChat);
 
-      setMessage('');
+      setInput('');
       setKeyboardOpen(false);
     }
   };
@@ -75,17 +44,17 @@ const AskPage = () => {
         <div className="col-span-2 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl">
           <div className="flex h-full w-full flex-col justify-between">
             <div className="flex w-full flex-col-reverse gap-6 overflow-y-scroll px-6 py-4">
-              {assistantThinking ? (
+              {assistantWriting ? (
                 <ChatBubble
                   message={{
-                    message: t('assistant_thinking'),
+                    message: currentReply,
                     user: false,
                     timestamp: Date.now(),
                   }}
                 />
               ) : null}
 
-              {state.messages.map((message, index) => (
+              {messages.map((message, index) => (
                 <ChatBubble key={index} message={message} />
               ))}
             </div>
@@ -99,15 +68,21 @@ const AskPage = () => {
                   <input
                     type="text"
                     placeholder={t('chat_placeholder')}
-                    value={message}
-                    onChange={onInputChanged}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
                     className="h-full w-full rounded-l-full bg-transparent pl-6 outline-none"
                   />
                   <button
                     type="button"
                     onClick={() => setKeyboardOpen(!keyboardOpen)}
                   >
-                    <KeyboardIcon className="mr-6 text-slate-400" />
+                    {keyboardOpen ? (
+                      <ChevronDown className="mr-6 text-slate-400" />
+                    ) : null}
+
+                    {!keyboardOpen ? (
+                      <KeyboardIcon className="mr-6 text-slate-400" />
+                    ) : null}
                   </button>
                 </div>
                 <Button
@@ -128,7 +103,7 @@ const AskPage = () => {
 
               {keyboardOpen ? (
                 <VirtualKeyboard
-                  onChange={setMessage}
+                  onChange={setInput}
                   onEnter={handleSendMessage}
                 />
               ) : null}
@@ -138,7 +113,7 @@ const AskPage = () => {
 
         {/* Tap to speak */}
         <div className="col-span-1 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 px-6 py-4 shadow-xl">
-          <VoiceRecorder />
+          <VoiceRecorder addMessage={addMessage} />
         </div>
       </div>
     </section>

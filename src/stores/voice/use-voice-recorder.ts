@@ -1,25 +1,24 @@
 import axios from 'axios';
 import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { type Chat } from '@/api/models/chat';
 import { type WhisperResponse } from '@/api/models/whisper-response';
-import * as actions from '@/stores/chat/chat-actions';
-import { bindActionCreators } from '@reduxjs/toolkit';
 
 const mimeType = 'audio/webm';
 
 type RecordingStatus = 'recording' | 'inactive' | 'transcribing';
 
-const useVoiceRecorder = () => {
+type Props = {
+  addMessage: (message: Chat) => void;
+};
+
+const useVoiceRecorder = ({ addMessage }: Props) => {
   const [permission, setPermission] = useState(false);
   const [stream, setStream] = useState<MediaStream>();
   const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
-  const [recordingStatus, setRecordingStatus] = useState<RecordingStatus>('inactive');
+  const [recordingStatus, setRecordingStatus] =
+    useState<RecordingStatus>('inactive');
   const mediaRecorder = useRef<MediaRecorder>();
-
-  const dispatch = useDispatch();
-  const { addMessage } = bindActionCreators(actions, dispatch);
 
   const getMicrophonePermission = async () => {
     if ('MediaRecorder' in window) {
@@ -90,7 +89,10 @@ const useVoiceRecorder = () => {
     try {
       const formData = new FormData();
 
-      formData.append('file', new File([audio], 'audio.webm', { type: mimeType }));
+      formData.append(
+        'file',
+        new File([audio], 'audio.webm', { type: mimeType })
+      );
       formData.append('model', 'whisper-1');
 
       const result = await axios.post<WhisperResponse>(
@@ -101,16 +103,16 @@ const useVoiceRecorder = () => {
             Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
             'Content-Type': 'multipart/form-data',
           },
-        },
+        }
       );
 
-      const newChat: Chat = {
+      console.log(result.data.text.trim());
+
+      addMessage({
         message: result.data.text.trim(),
         user: true,
         timestamp: Date.now(),
-      };
-
-      addMessage(newChat);
+      });
     } catch (error) {
       console.error('transcribeAudio error', error);
     }

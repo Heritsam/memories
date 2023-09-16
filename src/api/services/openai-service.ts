@@ -7,8 +7,9 @@ const openai = new OpenAI({
 
 export async function sendMessageToOpenAI(question: string) {
   try {
-    const completion = await openai.chat.completions.create({
+    const completionStream = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
+      stream: true,
       messages: [
         {
           role: 'system',
@@ -21,7 +22,7 @@ export async function sendMessageToOpenAI(question: string) {
       ],
     });
 
-    return completion.choices[0].message;
+    return completionStream;
   } catch (error) {
     console.error('sendMessageToOpenAI error', error);
   }
