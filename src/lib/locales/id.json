@@ -13,5 +13,7 @@
     "configure_microphone": "Konfigurasi izin",
     "listening": "Mendengarkan...",
     "transcribing": "Mentranskripsi...",
-    "assistant_thinking": "Asisten sedang berpikir..."
+    "assistant_thinking": "Asisten sedang berpikir...",
+    "with_image": "Dengan Foto?",
+    "with_video": "Dengan Video?"
 }

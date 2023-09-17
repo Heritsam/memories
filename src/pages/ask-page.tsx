@@ -7,6 +7,7 @@ import VoiceRecorder from '@/components/chat/voice-recorder';
 import Button from '@/components/ui/button';
 import VirtualKeyboard from '@/components/virtual-keyboard';
 import useChat from '@/stores/chat/use-chat';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const AskPage = () => {
   const { t } = useTranslation();
@@ -64,9 +65,30 @@ const AskPage = () => {
             </div>
 
             <div>
+              <div className="ml-2 flex flex-row gap-4 px-6 pt-4">
+                <div className="flex flex-row items-center gap-2">
+                  <Checkbox id="withImage" />
+                  <label
+                    htmlFor="withImage"
+                    className="text-sm font-medium text-slate-300"
+                  >
+                    {t('with_image')}
+                  </label>
+                </div>
+
+                <div className="flex flex-row items-center gap-2">
+                  <Checkbox id="withVideo" />
+                  <label
+                    htmlFor="withVideo"
+                    className="text-sm font-medium text-slate-300"
+                  >
+                    {t('with_video')}
+                  </label>
+                </div>
+              </div>
               <form
                 onSubmit={handleSendMessage}
-                className="flex flex-row justify-between gap-4 px-6 py-4"
+                className="flex flex-row justify-between gap-4 px-6 pb-4 pt-3"
               >
                 <div className="flex grow items-center rounded-full bg-slate-900/60">
                   <input
@@ -102,7 +124,6 @@ const AskPage = () => {
                   </svg>
                 </Button>
               </form>
-
               {keyboardOpen ? (
                 <VirtualKeyboard
                   onChange={setInput}

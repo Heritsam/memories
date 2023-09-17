@@ -13,5 +13,7 @@
     "configure_microphone": "Configure permission",
     "listening": "Listening...",
     "transcribing": "Transcribing...",
-    "assistant_thinking": "Assistant is thinking..."
+    "assistant_thinking": "Assistant is thinking...",
+    "with_image": "With Image?",
+    "with_video": "With Video?"
 }
