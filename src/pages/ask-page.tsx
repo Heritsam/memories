@@ -2,7 +2,6 @@ import { ChevronDown, KeyboardIcon } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { type Chat } from '@/api/models/chat';
 import ChatBubble from '@/components/chat/chat-bubble';
 import VoiceRecorder from '@/components/chat/voice-recorder';
 import Button from '@/components/ui/button';
@@ -22,14 +21,11 @@ const AskPage = () => {
     const newMessage = input.trim();
 
     if (newMessage.length > 0) {
-      const newChat: Chat = {
+      addMessage({
         message: newMessage,
         user: true,
         timestamp: Date.now(),
-      };
-
-      addMessage(newChat);
-
+      });
       setInput('');
       setKeyboardOpen(false);
     }
@@ -42,6 +38,16 @@ const AskPage = () => {
         <div className="col-span-2 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl">
           <div className="flex h-full w-full flex-col justify-between">
             <div className="flex w-full flex-col-reverse gap-6 overflow-y-scroll px-6 py-4">
+              {assistantWriting && currentReply.trim() === '' ? (
+                <ChatBubble
+                  message={{
+                    message: t('assistant_thinking'),
+                    user: false,
+                    timestamp: Date.now(),
+                  }}
+                />
+              ) : null}
+
               {assistantWriting && currentReply.trim() !== '' ? (
                 <ChatBubble
                   message={{
@@ -76,11 +82,9 @@ const AskPage = () => {
                   >
                     {keyboardOpen ? (
                       <ChevronDown className="mr-6 text-slate-400" />
-                    ) : null}
-
-                    {!keyboardOpen ? (
+                    ) : (
                       <KeyboardIcon className="mr-6 text-slate-400" />
-                    ) : null}
+                    )}
                   </button>
                 </div>
                 <Button

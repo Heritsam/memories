@@ -106,8 +106,6 @@ const useVoiceRecorder = ({ addMessage }: Props) => {
         }
       );
 
-      console.log(result.data.text.trim());
-
       addMessage({
         message: result.data.text.trim(),
         user: true,

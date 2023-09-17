@@ -1,7 +1,7 @@
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 
-import { Chat } from '@/api/models/chat';
+import { type Chat } from '@/api/models/chat';
 
 type Props = {
   message: Chat;
