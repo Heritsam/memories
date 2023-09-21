@@ -7,7 +7,6 @@ import Navbar from '@/components/navbar';
 import landing from '../assets/landing.png';
 
 const Root = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [remaining, setRemaining] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
 
@@ -34,6 +33,10 @@ const Root = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setRemaining(Math.ceil(getRemainingTime() / 1000));
+
+      if (import.meta.env.DEV && remaining % 10 === 0) {
+        console.log(`Remaining time: ${remaining}`);
+      }
     }, 500);
 
     return () => {
