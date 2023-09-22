@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { type Chat } from '@/api/models/chat';
 import { sendMessageToOpenAI } from '@/api/services/openai-service';
+import { playElevenlabsAudio } from '@/api/services/elevenlabs-service';
 
 const initialState: Chat[] = [
   {
@@ -44,6 +45,8 @@ const useChat = () => {
         user: false,
         timestamp: Date.now(),
       };
+
+      await playElevenlabsAudio(localCurrentReply);
 
       setMessages((prevMessages) => [reply, ...prevMessages]);
 

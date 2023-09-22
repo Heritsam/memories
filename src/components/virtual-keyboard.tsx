@@ -28,7 +28,7 @@ const VirtualKeyboard = ({ onChange, onEnter }: Props) => {
         layoutName={layoutName}
         onChange={onChange}
         onKeyPress={onKeyPress}
-        theme='hg-theme-default hg-layout-default'
+        theme="hg-theme-default hg-layout-default h-[250px]"
       />
     </div>
   );
