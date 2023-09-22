@@ -15,10 +15,10 @@ const Navbar = () => {
 
   return (
     <nav className="mb-4 flex flex-row justify-between">
-      <div className="flex flex-row items-center gap-6 p-2">
+      <div className="flex flex-row items-center gap-6">
         <img src={kemdikbud} alt="Kemdikbud" className="h-10 w-10" />
         <img src={pkm_white} alt="PKM-KC" className="h-12" />
-        <img src={simbelmawa} alt="Simbelmawa" className="w-16" />
+        <img src={simbelmawa} alt="Simbelmawa" className="w-20" />
       </div>
 
       <div className="rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl">
