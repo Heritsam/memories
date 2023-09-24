@@ -8,8 +8,8 @@ import landing from '../assets/landing.png';
 
 const Root = () => {
   const navigate = useNavigate();
-  const [remaining, setRemaining] = useState<number>(0);
-  const [count, setCount] = useState<number>(0);
+  const [remaining, setRemaining] = useState(0);
+  const [count, setCount] = useState(0);
   const [showScreensaver, setShowScreensaver] = useState(false);
 
   const onIdle = () => {
