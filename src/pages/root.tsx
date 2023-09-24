@@ -19,7 +19,12 @@ const Root = () => {
 
   const onActive = () => {
     console.log('User is active');
-    setShowScreensaver(false);
+
+    // delay 3 seconds before hiding screensaver
+    setTimeout(() => {
+      setShowScreensaver(false);
+    }, 3000);
+    
     // TODO: navigate to microphone page
     navigate('/');
   };
