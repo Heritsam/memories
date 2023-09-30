@@ -10,7 +10,7 @@ const SurveyPage = () => {
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSfQrCuHGiDjbX2bYIBBTMmTGaaFfqDSmNQ_pTdKLbakFCL-5w/viewform"
               target="_blank"
-              className="text-sm text-slate-400"
+              className="text-sm text-slate-400 hover:underline focus:underline"
             >
               Link alternatif
             </a>
