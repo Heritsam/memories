@@ -3,6 +3,7 @@ import { useIdleTimer } from 'react-idle-timer';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import Navbar from '@/components/navbar';
+import Screensaver from '@/components/screensaver';
 
 import landing from '../assets/landing.png';
 
@@ -23,8 +24,8 @@ const Root = () => {
     // delay 3 seconds before hiding screensaver
     setTimeout(() => {
       setShowScreensaver(false);
-    }, 3000);
-    
+    }, 1500);
+
     // TODO: navigate to microphone page
     navigate('/');
   };
@@ -60,13 +61,7 @@ const Root = () => {
       style={{ backgroundImage: `url(${landing})`, backgroundSize: 'cover' }}
       className="h-screen text-white"
     >
-      {showScreensaver ? (
-        <div className="fixed h-screen w-screen bg-gradient-to-br from-sky-800 to-purple-900">
-          <div className="flex h-full items-center justify-center">
-            Screensaver
-          </div>
-        </div>
-      ) : null}
+      {showScreensaver ? <Screensaver /> : null}
       <div className="container mx-auto flex h-full flex-col py-4">
         <Navbar />
         <Outlet />
