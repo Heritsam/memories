@@ -26,8 +26,7 @@ const Root = () => {
       setShowScreensaver(false);
     }, 1500);
 
-    // TODO: navigate to microphone page
-    navigate('/');
+    navigate('/landing');
   };
 
   const onAction = () => {
