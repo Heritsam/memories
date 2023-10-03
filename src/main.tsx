@@ -18,6 +18,10 @@ import SurveyPage from './pages/survey-page';
 
 const router = createBrowserRouter([
   {
+    path: '/landing',
+    element: <LandingPage />,
+  },
+  {
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
@@ -35,10 +39,6 @@ const router = createBrowserRouter([
         element: <SurveyPage />,
       },
     ],
-  },
-  {
-    path: '/landing',
-    element: <LandingPage />,
   },
 ]);
 
