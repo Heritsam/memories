@@ -14,7 +14,14 @@ const AskPage = () => {
 
   const [input, setInput] = useState('');
   const [keyboardOpen, setKeyboardOpen] = useState(false);
-  const { messages, addMessage, currentReply, assistantWriting } = useChat();
+  const {
+    messages,
+    addMessage,
+    currentReply,
+    assistantWriting,
+    withImage,
+    toggleImage,
+  } = useChat();
 
   const handleSendMessage = () => {
     event?.preventDefault();
@@ -67,7 +74,11 @@ const AskPage = () => {
             <div>
               <div className="ml-2 flex flex-row gap-4 px-6 pt-4">
                 <div className="flex flex-row items-center gap-2">
-                  <Checkbox id="withImage" />
+                  <Checkbox
+                    id="withImage"
+                    checked={withImage}
+                    onCheckedChange={toggleImage}
+                  />
                   <label
                     htmlFor="withImage"
                     className="text-sm font-medium text-slate-300"
@@ -113,6 +124,7 @@ const AskPage = () => {
                   type="submit"
                   variant="defaultGradient2"
                   className="h-14 w-14 rounded-full p-2"
+                  disabled={assistantWriting}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +148,10 @@ const AskPage = () => {
 
         {/* Tap to speak */}
         <div className="col-span-1 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 px-6 py-4 shadow-xl">
-          <VoiceRecorder addMessage={addMessage} />
+          <VoiceRecorder
+            addMessage={addMessage}
+            disabled={assistantWriting}
+          />
         </div>
       </div>
     </section>

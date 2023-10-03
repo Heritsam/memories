@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { type Chat } from '@/api/models/chat';
+import { cn } from '@/lib/utils';
 import useVoiceRecorder from '@/stores/voice/use-voice-recorder';
 
 import microphone from '../../assets/icons/microphone.svg';
@@ -8,9 +9,10 @@ import Button from '../ui/button';
 
 type Props = {
   addMessage: (message: Chat) => void;
+  disabled?: boolean;
 };
 
-const VoiceRecorder = ({ addMessage }: Props) => {
+const VoiceRecorder = ({ addMessage, disabled }: Props) => {
   const { t } = useTranslation();
   const {
     permission,
@@ -19,6 +21,10 @@ const VoiceRecorder = ({ addMessage }: Props) => {
     stopRecording,
     getMicrophonePermission,
   } = useVoiceRecorder({ addMessage });
+  const startRecordingStyle = cn(
+    'rounded-full bg-gradient-to-br p-8 shadow-lg transition-all hover:shadow-md',
+    disabled ? 'from-slate-300 to-slate-500' : 'from-sky-500 to-indigo-500',
+  );
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-6">
@@ -37,10 +43,11 @@ const VoiceRecorder = ({ addMessage }: Props) => {
       {permission && recordingStatus === 'inactive' ? (
         <>
           <button
+            disabled={disabled}
             type="button"
             title="mic-start-button"
             onClick={startRecording}
-            className="rounded-full bg-gradient-to-br from-sky-500 to-indigo-500 p-8 shadow-lg transition-all hover:shadow-md"
+            className={startRecordingStyle}
           >
             <img src={microphone} alt="microphone" />
           </button>

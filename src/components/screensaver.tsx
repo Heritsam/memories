@@ -18,7 +18,7 @@ const Screensaver = () => {
           height={height.current - 128}
           autoPlay={true}
           loop={true}
-          className="rounded-xl shadow-2xl"
+          className="m-8 rounded-xl shadow-2xl"
         >
           <source src={tutorial} />
         </video>
