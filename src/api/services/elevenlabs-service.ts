@@ -2,7 +2,12 @@ import axios from 'axios';
 
 const voiceId = 'EXAVITQu4vr4xnSDxMaL';
 const modelId = 'eleven_multilingual_v2';
-const voiceSettings = { stability: 0, similarity_boost: 0 };
+const voiceSettings = {
+  stability: 0,
+  similarity_boost: 0,
+  style: 0,
+  use_speaker_boost: true,
+};
 
 export async function playElevenlabsAudio(text: string) {
   try {
