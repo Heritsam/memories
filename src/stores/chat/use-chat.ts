@@ -61,8 +61,8 @@ const useChat = () => {
         timestamp: Date.now(),
       };
 
-      setMessages((prevMessages) => [reply, ...prevMessages]);
       await playElevenlabsAudio(localCurrentReply);
+      setMessages((prevMessages) => [reply, ...prevMessages]);
 
       setAssistantWriting(false);
       setCurrentReply('');
