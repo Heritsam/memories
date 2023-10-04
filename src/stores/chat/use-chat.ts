@@ -62,11 +62,10 @@ const useChat = () => {
       };
 
       setMessages((prevMessages) => [reply, ...prevMessages]);
+      await playElevenlabsAudio(localCurrentReply);
 
       setAssistantWriting(false);
       setCurrentReply('');
-
-      await playElevenlabsAudio(localCurrentReply);
     }
   };
 
