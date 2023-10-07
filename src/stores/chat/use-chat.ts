@@ -59,13 +59,18 @@ const useChat = () => {
         message: localCurrentReply,
         user: false,
         timestamp: Date.now(),
+        images: withImage
+          ? [
+              'https://backpanel.kemlu.go.id/sites/pusat/PublishingImages/Tentang%20Kami/Museum%20Konferensi%20Asia%20Afrika_jpg.jpg',
+            ]
+          : [],
       };
 
-      await playElevenlabsAudio(localCurrentReply);
       setMessages((prevMessages) => [reply, ...prevMessages]);
-
-      setAssistantWriting(false);
+      setCurrentReply('~');
+      await playElevenlabsAudio(localCurrentReply);
       setCurrentReply('');
+      setAssistantWriting(false);
     }
   };
 

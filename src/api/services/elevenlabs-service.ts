@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const voiceId = 'EXAVITQu4vr4xnSDxMaL';
+const voiceId = 'MF3mGyEYCl7XYWbV9V6O';
 const modelId = 'eleven_multilingual_v2';
 const voiceSettings = {
   stability: 0,

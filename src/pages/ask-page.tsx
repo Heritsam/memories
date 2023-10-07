@@ -39,6 +39,38 @@ const AskPage = () => {
     }
   };
 
+  const buildAssistantWritingMessage = () => {
+    if (!assistantWriting) {
+      return;
+    }
+
+    if (currentReply.trim() === '~') {
+      return <></>;
+    }
+
+    if (currentReply.trim() === '') {
+      return (
+        <ChatBubble
+          message={{
+            message: t('assistant_thinking'),
+            user: false,
+            timestamp: Date.now(),
+          }}
+        />
+      );
+    } else {
+      return (
+        <ChatBubble
+          message={{
+            message: currentReply,
+            user: false,
+            timestamp: Date.now(),
+          }}
+        />
+      );
+    }
+  };
+
   return (
     <section className="h-full">
       <div className="grid h-full grid-flow-row grid-cols-3 gap-4">
@@ -46,26 +78,7 @@ const AskPage = () => {
         <div className="col-span-2 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 shadow-xl">
           <div className="flex h-full w-full flex-col justify-between">
             <div className="flex w-full flex-col-reverse gap-6 overflow-y-scroll px-6 py-4">
-              {assistantWriting && currentReply.trim() === '' ? (
-                <ChatBubble
-                  message={{
-                    message: t('assistant_thinking'),
-                    user: false,
-                    timestamp: Date.now(),
-                  }}
-                />
-              ) : null}
-
-              {assistantWriting && currentReply.trim() !== '' ? (
-                <ChatBubble
-                  message={{
-                    message: currentReply,
-                    user: false,
-                    timestamp: Date.now(),
-                  }}
-                />
-              ) : null}
-
+              {buildAssistantWritingMessage()}
               {messages.map((message, index) => (
                 <ChatBubble key={index} message={message} />
               ))}
@@ -84,16 +97,6 @@ const AskPage = () => {
                     className="text-sm font-medium text-slate-300"
                   >
                     {t('with_image')}
-                  </label>
-                </div>
-
-                <div className="flex flex-row items-center gap-2">
-                  <Checkbox id="withVideo" />
-                  <label
-                    htmlFor="withVideo"
-                    className="text-sm font-medium text-slate-300"
-                  >
-                    {t('with_video')}
                   </label>
                 </div>
               </div>
@@ -148,10 +151,7 @@ const AskPage = () => {
 
         {/* Tap to speak */}
         <div className="col-span-1 h-[82vh] rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 px-6 py-4 shadow-xl">
-          <VoiceRecorder
-            addMessage={addMessage}
-            disabled={assistantWriting}
-          />
+          <VoiceRecorder addMessage={addMessage} disabled={assistantWriting} />
         </div>
       </div>
     </section>
