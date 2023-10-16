@@ -32,7 +32,7 @@ const useScreensaver = () => {
     onIdle,
     onActive,
     onAction,
-    timeout: 60_000, // 1 minute
+    timeout: 300_000, // 1 minute
     throttle: 500,
   });
 
