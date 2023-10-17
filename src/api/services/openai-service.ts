@@ -7,7 +7,7 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-export async function sendMessageToOpenAI(messages: Chat[]) {
+export async function sendMessageToOpenAI(messages: Chat[], prompt: string) {
   try {
     const previousMessages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] =
       messages.reverse().map((message) => {
@@ -24,8 +24,7 @@ export async function sendMessageToOpenAI(messages: Chat[]) {
       messages: [
         {
           role: 'system',
-          content:
-            "Jadilah pemandu museum, kamu dikenal sebagai mories, kamu sangat mengerti tentang museum terutama museum konferensi asia afrika (KAA) apabila diluar konteks tersebut kamu akan menjawabnya dengan 'Maaf Mories belum bisa menjawab' disertai alasannya. Usahakan menjawab sebisanya sebagai guru kepada muridnya dengan waktu 30 detik, jika tidak cukup jawab seringkas mungkin dan memberikan saran menanyakan bagian spesifik.",
+          content: prompt,
         },
         ...previousMessages,
       ],

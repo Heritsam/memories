@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
 import ChatBubble from '@/components/chat/chat-bubble';
 import VoiceRecorder from '@/components/chat/voice-recorder';
 import Button from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import VirtualKeyboard from '@/components/virtual-keyboard';
 import useChat from '@/stores/chat/use-chat';
-import { Checkbox } from '@/components/ui/checkbox';
 
 const AskPage = () => {
   const { t } = useTranslation();
@@ -79,9 +79,20 @@ const AskPage = () => {
           <div className="flex h-full w-full flex-col justify-between">
             <div className="flex w-full flex-col-reverse gap-6 overflow-y-scroll px-6 py-4">
               {buildAssistantWritingMessage()}
-              {messages.map((message, index) => (
-                <ChatBubble key={index} message={message} />
-              ))}
+              {messages.map((message, index) =>
+                index === messages.length - 1 ? (
+                  <ChatBubble
+                    key={index}
+                    message={{
+                      message: t('mories_hello'),
+                      user: false,
+                      timestamp: new Date().getTime(),
+                    }}
+                  />
+                ) : (
+                  <ChatBubble key={index} message={message} />
+                )
+              )}
             </div>
 
             <div>

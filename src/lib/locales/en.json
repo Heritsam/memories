@@ -16,5 +16,7 @@
     "transcribing": "Transcribing...",
     "assistant_thinking": "Assistant is thinking...",
     "with_image": "With Image?",
-    "with_video": "With Video?"
+    "with_video": "With Video?",
+    "mories_hello": "Hello! I'm **Mories**! Welcome to the Asia-Africa Conference Museum! What would you like to know about this museum?",
+    "mories_prompt": "Act as a museum guide, known as Mories. You are very knowledgeable about the Konperensi Asia Afrika (KAA) museum. If a question is outside of this context, respond with 'Sorry, Mories cannot answer that' followed by the reason. Try your best to answer as if you're a teacher explaining to a student within 30 seconds. If the time isn't sufficient, provide a brief answer and suggest asking about a specific part."
 }
