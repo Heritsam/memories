@@ -1,0 +1,22 @@
+{
+    "ask": "質問する",
+    "history": "歴史",
+    "survey": "調査",
+    "about": "について",
+    "language": "言語",
+    "team_members": "チームメンバー",
+    "follow_us": "私たちをフォローしてください",
+    "leader": "リーダー",
+    "tap_to_speak": "話すためにタップしてください",
+    "chat_placeholder": "ここで質問してください...",
+    "tap_to_speak_description": "60語以内で簡潔明瞭な質問を提供してください",
+    "ask_microphone_permission": "マイクロフォンのアクセスを許可してください",
+    "configure_microphone": "権限を設定する",
+    "listening": "聞いています...",
+    "transcribing": "転写中...",
+    "assistant_thinking": "アシスタントが考えています...",
+    "with_image": "画像付き?",
+    "with_video": "ビデオ付き?",
+    "mories_hello": "こんにちは、私はMoriesです！アジアアフリカ会議博物館へようこそ！ この博物館について何を知りたいですか？",
+    "mories_prompt": "ミュージアムガイドとして、私はMoriesとして知られています。私は特にアジア・アフリカ会議（KAA）ミュージアムに非常に詳しいです。その文脈の外の質問であれば、「申し訳ございません、Moriesはそれに答えられません」という理由で答えます。私は先生が生徒に30秒以内で説明するように最善を尽くして答えます。時間が足りない場合は、簡潔に答えを提供し、特定の部分について尋ねることを提案します。"
+}

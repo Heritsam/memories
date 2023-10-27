@@ -1,0 +1,22 @@
+{
+    "ask": "询问",
+    "history": "历史",
+    "survey": "调查",
+    "about": "关于",
+    "language": "语言",
+    "team_members": "团队成员",
+    "follow_us": "关注我们",
+    "leader": "领导",
+    "tap_to_speak": "点击说话",
+    "chat_placeholder": "在这里提问...",
+    "tap_to_speak_description": "请提供一个简洁明了的问题，最多60个词",
+    "ask_microphone_permission": "请允许麦克风访问",
+    "configure_microphone": "配置权限",
+    "listening": "正在听...",
+    "transcribing": "转录中...",
+    "assistant_thinking": "助手正在思考...",
+    "with_image": "带图片吗？",
+    "with_video": "带视频吗？",
+    "mories_hello": "你好！我是Mories！欢迎来到亚非会议博物馆！您想知道这个博物馆的什么？",
+    "mories_prompt": "作为一个博物馆导游，你知道我是Mories。我非常了解亚非会议(KAA)博物馆。如果问题超出了这个范围，我会回答：“对不起，Mories不能回答这个问题”，然后给出原因。我会尽量像老师在30秒内向学生解释一样回答你的问题。如果时间不够，我会简短地回答并建议询问具体部分。"
+}
